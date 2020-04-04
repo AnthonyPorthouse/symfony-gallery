@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\Image;
 use App\Repository\ImageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,7 @@ class GalleryController extends AbstractController
     }
 
     /**
+     * @Route("/", name="home")
      * @Route("/gallery", name="gallery")
      */
     public function index(): Response
@@ -31,12 +33,14 @@ class GalleryController extends AbstractController
     }
 
     /**
-     * @Route("/gallery/:id", name="gallery_show")
+     * @Route("/gallery/{id}", name="gallery_show")
+     * @param Image $image
+     * @return Response
      */
-    public function show(): Response
+    public function show(Image $image): Response
     {
         return $this->render('gallery/show.html.twig', [
-
+            'image' => $image,
         ]);
     }
 }

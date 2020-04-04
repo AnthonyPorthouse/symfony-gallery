@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <header class="mb-4 text-4xl">
+            <h1>Gallery</h1>
+        </header>
+
+        <div class="flex justify-center">
+            <div class="photo inline-block max-w-full bg-white rounded shadow overflow-hidden p-3 text-center">
+                <img class="lazy" src="" alt="{{ image.title }}" data-src="{{ vich_uploader_asset(image) }}">
+                <h2 class="text-lg w-auto">{{ image.title }}</h2>
+                <p class="w-auto">{{ image.description }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@15.1.1/dist/lazyload.min.js"></script>
+    <script>
+        const lazyLoadInstance = new LazyLoad({
+            elements_selector: ".lazy",
+        });
+    </script>
+{% endblock %}
