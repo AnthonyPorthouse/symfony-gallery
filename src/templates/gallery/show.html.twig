@@ -9,12 +9,16 @@
         </header>
 
         <div class="flex justify-center">
-            <div class="photo inline-block max-w-full bg-white rounded shadow overflow-hidden p-3 text-center">
-                <img class="lazy" src="" alt="{{ image.title }}" data-src="{{ vich_uploader_asset(image) }}">
-                <h2 class="text-lg w-auto">{{ image.title }}</h2>
-                <p class="w-auto">{{ image.description }}</p>
+            <div>
+                <div class="photo inline-block max-w-full bg-white rounded shadow overflow-hidden p-3 text-center">
+                    <img class="lazy" src="" alt="{{ image.title }}" data-src="{{ vich_uploader_asset(image) }}">
+                    <h2 class="text-lg w-auto">{{ image.title }}</h2>
+                    <p class="w-auto">{{ image.description }}</p>
+                </div>
+                <a class="block mt-4 text-center text-blue-400" href="{{ path('gallery') }}">Go Back</a>
             </div>
         </div>
+
     </div>
 {% endblock %}
 

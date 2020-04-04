@@ -11,9 +11,11 @@
         <ul class="grid grid-cols-4">
             {% for image in images %}
                 <li class="photo bg-white rounded shadow m-1 overflow-hidden p-3 text-center">
-                    <img class="lazy" src="" alt="{{ image.title }}" data-src="{{ vich_uploader_asset(image) }}">
-                    <h2 class="text-lg">{{ image.title }}</h2>
-                    <p>{{ image.description }}</p>
+                    <a href="{{ path('gallery_show', {id: image.id}) }}">
+                        <img class="lazy" src="" alt="{{ image.title }}" data-src="{{ vich_uploader_asset(image) }}">
+                        <h2 class="text-lg">{{ image.title }}</h2>
+                        <p>{{ image.description }}</p>
+                    </a>
                 </li>
             {% endfor %}
         </ul>
