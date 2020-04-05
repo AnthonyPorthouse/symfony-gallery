@@ -25,7 +25,7 @@ class GalleryController extends AbstractController
      */
     public function index(): Response
     {
-        $images = $this->imageRepository->findAll();
+        $images = $this->imageRepository->findBy([], ['id' => 'DESC']);
 
         return $this->render('gallery/index.html.twig', [
             'images' => $images,

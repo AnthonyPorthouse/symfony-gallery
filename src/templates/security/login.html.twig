@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Please Sign In{% endblock %}
 
 {% block body %}
 <form method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="bg-red-100 border-t-4 border-red-500 text-red-700 px-4 py-3 shadow-md relative">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
     {% endif %}
 
     {% if app.user %}
@@ -14,7 +16,6 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
     <label for="inputPassword">Password</label>
@@ -35,7 +36,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="rounded py-2 px-4 bg-green-400 text-white" type="submit">
         Sign in
     </button>
 </form>
